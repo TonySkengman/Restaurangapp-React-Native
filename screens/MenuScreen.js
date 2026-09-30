@@ -37,19 +37,28 @@ export default function MenuScreen({ navigation }) {
 
         <Pressable
           style={styles.categoryButton}
-          onPress={() => navigation.navigate("MainsScreen")}
+          onPress={() => navigation.navigate("SteaksScreen")}
         >
           <Text style={styles.categoryText}>
-            MAINS
+            STEAKS
           </Text>
         </Pressable>
 
         <Pressable
           style={styles.categoryButton}
-          onPress={() => navigation.navigate("SteaksScreen")}
+          onPress={() => navigation.navigate("SidesScreen")}
         >
           <Text style={styles.categoryText}>
-            STEAKS
+            SIDES
+          </Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.categoryButton}
+          onPress={() => navigation.navigate("SaucesScreen")}
+        >
+          <Text style={styles.categoryText}>
+            SAUCES
           </Text>
         </Pressable>
 
@@ -109,15 +118,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     marginTop: 8,
-    marginBottom: 40,
+    marginBottom: 30,
   },
 
   categoryContainer: {
-    gap: 18,
+    gap: 15,
   },
 
   categoryButton: {
-    height: 100,
+    height: 95,
     backgroundColor: "#1c1c1c",
     borderWidth: 1,
     borderColor: "#555555",

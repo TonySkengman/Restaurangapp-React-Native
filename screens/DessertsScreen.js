@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, FlatList } from "react-native";
+import { desserts } from "../data/desserts";
 
 export default function DessertsScreen( {navigation} ) {
+
   return (
     <View style={styles.container}>
 
@@ -20,6 +22,31 @@ export default function DessertsScreen( {navigation} ) {
       <Text style={styles.subtitle}>
         Something sweet to finish
       </Text>
+
+      <FlatList
+        data={desserts}
+        keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={styles.list}
+        renderItem={({ item }) => (
+          <View style={styles.mealCard}>
+
+            <View style={styles.mealInfo}>
+              <Text style={styles.mealName}>
+                {item.name}
+              </Text>
+
+              <Text style={styles.description}>
+                {item.description}
+              </Text>
+
+            </View>
+            <Text style={styles.price}>
+              {item.price} SEK
+            </Text>
+          </View>
+        )}
+      
+      />
     </View>
   );
 }
@@ -56,4 +83,43 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 10,
   },
+
+      list: {
+    paddingTop: 25,
+    paddingBottom: 30,
+  },
+
+  mealCard: {
+    backgroundColor: "#1c1c1c",
+    borderWidth: 1,
+    borderColor: "#444444",
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 15,
+  },
+
+  mealInfo: {
+    marginBottom: 12,
+  },
+
+  mealName: {
+    color: "white",
+    fontSize: 21,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+
+  description: {
+    color: "#b5b5b5",
+    fontSize: 15,
+    lineHeight: 21,
+  },
+
+  price: {
+    color: "white",
+    fontSize: 17,
+    fontWeight: "bold",
+  },
+
+  
 });

@@ -1,0 +1,88 @@
+export const sides = [
+    
+  {
+    id: 25,
+    name: "French Fries",
+    price: 49,
+    category: "Sides",
+    description: "Crispy golden fries seasoned with sea salt",
+  },
+  {
+    id: 26,
+    name: "Truffle Fries",
+    price: 69,
+    category: "Sides",
+    description: "Crispy fries tossed with truffle oil and parmesan",
+  },
+  {
+    id: 27,
+    name: "Mashed Potatoes",
+    price: 55,
+    category: "Sides",
+    description: "Creamy mashed potatoes with butter and fresh herbs",
+  },
+  {
+    id: 28,
+    name: "Garlic Mashed Potatoes",
+    price: 65,
+    category: "Sides",
+    description: "Creamy mashed potatoes with roasted garlic and butter",
+  },
+  {
+    id: 29,
+    name: "Baked Potato",
+    price: 55,
+    category: "Sides",
+    description: "Oven-baked potato served with herb butter",
+  },
+  {
+    id: 30,
+    name: "Loaded Baked Potato",
+    price: 69,
+    category: "Sides",
+    description:
+      "Baked potato topped with sour cream, cheddar and crispy bacon",
+  },
+  {
+    id: 31,
+    name: "Steakhouse Potato",
+    price: 65,
+    category: "Sides",
+    description: "Roasted potatoes with garlic, rosemary and sea salt",
+  },
+  {
+    id: 32,
+    name: "Grilled Vegetables",
+    price: 59,
+    category: "Sides",
+    description: "Seasonal vegetables grilled with olive oil and herbs",
+  },
+  {
+    id: 33,
+    name: "Creamed Spinach",
+    price: 59,
+    category: "Sides",
+    description: "Tender spinach in a creamy sauce with parmesan",
+  },
+  {
+    id: 34,
+    name: "Mac & Cheese",
+    price: 69,
+    category: "Sides",
+    description: "Creamy macaroni with mature cheddar and parmesan",
+  },
+  {
+    id: 35,
+    name: "Onion Rings",
+    price: 55,
+    category: "Sides",
+    description: "Crispy beer-battered onion rings with house dipping sauce",
+  },
+  {
+    id: 36,
+    name: "Coleslaw",
+    price: 45,
+    category: "Sides",
+    description: "Fresh cabbage and carrot slaw with a creamy dressing",
+  },
+];

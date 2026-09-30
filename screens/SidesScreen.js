@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, Pressable, FlatList } from "react-native";
-import { steaks } from "../data/steaks";
+import { sides } from "../data/sides";
 
-export default function SteaksScreen( {navigation} ) {
+export default function SidesScreen( {navigation} ) {
 
   return (
     <View style={styles.container}>
+
               <Pressable
         style={styles.backButton}
         onPress={() => navigation.goBack()}
@@ -14,15 +15,15 @@ export default function SteaksScreen( {navigation} ) {
         </Text>
         </Pressable>
       <Text style={styles.title}>
-        STEAKS
+        SIDES
       </Text>
 
       <Text style={styles.subtitle}>
-        Our selection of premium steaks
+        The perfect sides for your steak
       </Text>
 
       <FlatList
-        data={steaks}
+        data={sides}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
@@ -36,16 +37,14 @@ export default function SteaksScreen( {navigation} ) {
               <Text style={styles.description}>
                 {item.description}
               </Text>
-            </View>
 
+            </View>
             <Text style={styles.price}>
               {item.price} SEK
             </Text>
-
           </View>
         )}
       />
-
     </View>
   );
 }
@@ -82,8 +81,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 10,
   },
-
-    list: {
+      list: {
     paddingTop: 25,
     paddingBottom: 30,
   },

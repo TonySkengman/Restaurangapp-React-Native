@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, Pressable, FlatList } from "react-native";
-import { steaks } from "../data/steaks";
+import { sauces } from "../data/sauces";
 
-export default function SteaksScreen( {navigation} ) {
+export default function SaucesScreen( {navigation} ) {
 
   return (
     <View style={styles.container}>
+
               <Pressable
         style={styles.backButton}
         onPress={() => navigation.goBack()}
@@ -12,17 +13,18 @@ export default function SteaksScreen( {navigation} ) {
         <Text style={styles.backButtonText}>
           ← BACK
         </Text>
-        </Pressable>
+      </Pressable>
+
       <Text style={styles.title}>
-        STEAKS
+        SAUCES
       </Text>
 
       <Text style={styles.subtitle}>
-        Our selection of premium steaks
+        Choose the perfect finishing touch
       </Text>
 
       <FlatList
-        data={steaks}
+        data={sauces}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
@@ -36,16 +38,15 @@ export default function SteaksScreen( {navigation} ) {
               <Text style={styles.description}>
                 {item.description}
               </Text>
-            </View>
 
+            </View>
             <Text style={styles.price}>
               {item.price} SEK
             </Text>
-
           </View>
         )}
+      
       />
-
     </View>
   );
 }
@@ -54,8 +55,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#111111",
-    paddingHorizontal: 25,
     paddingTop: 50,
+    paddingHorizontal: 25,
   },
 
   title: {
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-    list: {
+      list: {
     paddingTop: 25,
     paddingBottom: 30,
   },
