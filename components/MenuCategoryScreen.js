@@ -1,5 +1,6 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import MenuCard from "./MenuCard";
+import BackButton from "./BackButton";
 
 export default function MenuCategoryScreen ({
   navigation,
@@ -10,14 +11,7 @@ export default function MenuCategoryScreen ({
   return (
     <View style={styles.container}>
 
-      <Pressable
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.backButtonText}>
-          ← BACK
-        </Text>
-      </Pressable>
+      <BackButton navigation={navigation} />
 
       <Text style={styles.title}>
         {title}
@@ -32,7 +26,7 @@ export default function MenuCategoryScreen ({
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
-          <MenuCard item={item} />
+          <MenuCard item={item} navigation={navigation} />
         )}
       />
 
@@ -46,19 +40,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#111111",
     paddingHorizontal: 25,
     paddingTop: 50,
-  },
-
-  backButton: {
-    alignSelf: "flex-start",
-    paddingVertical: 10,
-    paddingRight: 20,
-    marginBottom: 10,
-  },
-
-  backButtonText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
   },
 
   title: {

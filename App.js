@@ -10,6 +10,7 @@ import SidesScreen from "./screens/SidesScreen";
 import DessertsScreen from "./screens/DessertsScreen";
 import SaucesScreen from "./screens/SaucesScreen";
 import DrinksScreen from "./screens/DrinksScreen";
+import MealDetailsScreen from "./screens/MealDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -70,6 +71,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
+        <Stack.Screen
+          name="MealDetails"
+          component={MealDetailsScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,7 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 
-export default function MenuCard({ item }) {
+export default function MenuCard({ item, navigation }) {
   return (
+
+  <Pressable
+      onPress={() => navigation.navigate("MealDetails", { item })}
+    >
+
     <View style={styles.mealCard}>
 
       <View style={styles.mealInfo}>
@@ -19,6 +24,7 @@ export default function MenuCard({ item }) {
       </Text>
 
     </View>
+  </Pressable>
   );
 }
 

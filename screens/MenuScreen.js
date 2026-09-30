@@ -5,16 +5,13 @@ import {
   View
 } from "react-native";
 
+import BackButton from "../components/BackButton";
+
 export default function MenuScreen({ navigation }) {
   return (
     <View style={styles.container}>
 
-      <Pressable
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.backButtonText}>← BACK</Text>
-      </Pressable>
+      <BackButton navigation={navigation} />
 
       <Text style={styles.title}>
         MENU
@@ -91,19 +88,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#111111",
     paddingHorizontal: 25,
     paddingTop: 60,
-  },
-
-  backButton: {
-    alignSelf: "flex-start",
-    paddingVertical: 10,
-    paddingRight: 20,
-    marginBottom: 10,
-  },
-
-  backButtonText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
   },
 
   title: {
