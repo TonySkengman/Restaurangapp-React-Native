@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 
-export default function MenuCard({ item, navigation }) {
+export default function MenuItem({ item, navigation }) {
   return (
 
   <Pressable

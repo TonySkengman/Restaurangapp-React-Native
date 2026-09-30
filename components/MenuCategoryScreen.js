@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import MenuCard from "./MenuCard";
+import MenuCard from "./MenuItem";
 import BackButton from "./BackButton";
 
 export default function MenuCategoryScreen ({
