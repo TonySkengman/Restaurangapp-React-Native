@@ -8,6 +8,7 @@ export default function DrinksScreen({ navigation }) {
       title="DRINKS"
       subtitle="Something refreshing to accompany your meal"
       data={drinks}
+      backgroundImage={require("../assets/images/drinks.png")}
     />
   );
 }

@@ -11,6 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import AboutUs from "../components/AboutUs";
 import RestaurantAdress from "../components/RestaurantAdress";
+import ContactInfo from "../components/ContactInfo";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -48,6 +49,11 @@ export default function HomeScreen() {
           <View style={styles.section}>
             <RestaurantAdress />
           </View>
+
+          <View style={styles.section}>
+            <ContactInfo />
+          </View>
+
         </ScrollView>
       </View>
     </ImageBackground>

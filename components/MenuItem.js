@@ -1,41 +1,70 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
+import { useState } from "react";
 
 export default function MenuItem({ item, navigation }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   return (
+    <View style={styles.wrapper}>
 
-  <Pressable
-      onPress={() => navigation.navigate("MealDetails", { item })}
-    >
+      <Pressable
+        style={styles.mealCard}
+        onPress={() => navigation.navigate("MealDetails", { item })}
+      >
 
-    <View style={styles.mealCard}>
+        <View style={styles.mealInfo}>
+          <Text style={styles.mealName}>
+            {item.name}
+          </Text>
 
-      <View style={styles.mealInfo}>
-        <Text style={styles.mealName}>
-          {item.name}
+          <Text style={styles.description}>
+            {item.description}
+          </Text>
+        </View>
+
+        <Text style={styles.price}>
+          {item.price} SEK
         </Text>
 
-        <Text style={styles.description}>
-          {item.description}
-        </Text>
-      </View>
+      </Pressable>
 
-      <Text style={styles.price}>
-        {item.price} SEK
-      </Text>
+      <Pressable
+        style={styles.favoriteButton}
+        onPress={() => setIsFavorite(!isFavorite)}
+      >
+        <Text
+          style={[
+            styles.favoriteIcon,
+            isFavorite && styles.favoriteActive,
+          ]}
+        >
+          {isFavorite ? "★" : "☆"}
+        </Text>
+      </Pressable>
 
     </View>
-  </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    position: "relative",
+    marginBottom: 15,
+  },
+
   mealCard: {
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "rgba(28, 28, 28, 0.75)",
     borderWidth: 1,
     borderColor: "#444444",
     borderRadius: 10,
     padding: 20,
-    marginBottom: 15,
+    paddingRight: 60,
   },
 
   mealInfo: {
@@ -59,5 +88,24 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 17,
     fontWeight: "bold",
+  },
+
+  favoriteButton: {
+    position: "absolute",
+    right: 15,
+    top: 15,
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  favoriteIcon: {
+    color: "white",
+    fontSize: 30,
+  },
+
+  favoriteActive: {
+    color: "white",
   },
 });

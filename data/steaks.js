@@ -2,7 +2,7 @@ export const steaks = [
     
   {
     id: 11,
-    name: "Ribeye",
+    name: "Ribeye 250g",
     price: 329,
     category: "Steaks",
     description: "250g ribeye grilled to your preference with herb butter"
@@ -16,7 +16,7 @@ export const steaks = [
   },
   {
     id: 13,
-    name: "Beef Tenderloin",
+    name: "Beef Tenderloin 200g",
     price: 389,
     category: "Steaks",
     description: "200g tender beef fillet served with peppercorn sauce"

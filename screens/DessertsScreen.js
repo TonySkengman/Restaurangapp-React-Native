@@ -8,6 +8,7 @@ export default function DessertsScreen({ navigation }) {
       title="DESSERTS"
       subtitle="Something sweet to finish"
       data={desserts}
+      backgroundImage={require("../assets/images/desserts.png")}
     />
   );
 }

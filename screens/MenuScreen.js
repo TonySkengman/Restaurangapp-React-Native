@@ -1,91 +1,109 @@
 import {
+  ImageBackground,
   Pressable,
   StyleSheet,
   Text,
-  View
+  View,
 } from "react-native";
 
 import BackButton from "../components/BackButton";
 
 export default function MenuScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require("../assets/images/menu.png")}
+      style={styles.container}
+      imageStyle={styles.backgroundImage}
+    >
 
-      <BackButton navigation={navigation} />
+      <View style={styles.overlay}>
 
-      <Text style={styles.title}>
-        MENU
-      </Text>
+        <BackButton navigation={navigation} />
 
-      <Text style={styles.subtitle}>
-        Choose a category
-      </Text>
+        <Text style={styles.title}>
+          MENU
+        </Text>
 
-      <View style={styles.categoryContainer}>
+        <Text style={styles.subtitle}>
+          Choose a category
+        </Text>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("StartersScreen")}
-        >
-          <Text style={styles.categoryText}>
-            STARTERS
-          </Text>
-        </Pressable>
+        <View style={styles.categoryContainer}>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("SteaksScreen")}
-        >
-          <Text style={styles.categoryText}>
-            STEAKS
-          </Text>
-        </Pressable>
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("StartersScreen")}
+          >
+            <Text style={styles.categoryText}>
+              STARTERS
+            </Text>
+          </Pressable>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("SidesScreen")}
-        >
-          <Text style={styles.categoryText}>
-            SIDES
-          </Text>
-        </Pressable>
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("SteaksScreen")}
+          >
+            <Text style={styles.categoryText}>
+              STEAKS
+            </Text>
+          </Pressable>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("SaucesScreen")}
-        >
-          <Text style={styles.categoryText}>
-            SAUCES
-          </Text>
-        </Pressable>
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("SidesScreen")}
+          >
+            <Text style={styles.categoryText}>
+              SIDES
+            </Text>
+          </Pressable>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("DrinksScreen")}
-        >
-          <Text style={styles.categoryText}>
-            DRINKS
-          </Text>
-        </Pressable>
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("SaucesScreen")}
+          >
+            <Text style={styles.categoryText}>
+              SAUCES
+            </Text>
+          </Pressable>
 
-        <Pressable
-          style={styles.categoryButton}
-          onPress={() => navigation.navigate("DessertsScreen")}
-        >
-          <Text style={styles.categoryText}>
-            DESSERTS
-          </Text>
-        </Pressable>
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("DrinksScreen")}
+          >
+            <Text style={styles.categoryText}>
+              DRINKS
+            </Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.categoryButton}
+            onPress={() => navigation.navigate("DessertsScreen")}
+          >
+            <Text style={styles.categoryText}>
+              DESSERTS
+            </Text>
+          </Pressable>
+
+        </View>
 
       </View>
-    </View>
+
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#111111",
+  },
+
+  backgroundImage: {
+    resizeMode: "cover",
+  },
+
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.65)",
     paddingHorizontal: 25,
     paddingTop: 60,
   },
@@ -111,7 +129,7 @@ const styles = StyleSheet.create({
 
   categoryButton: {
     height: 95,
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "rgba(28, 28, 28, 0.75)",
     borderWidth: 1,
     borderColor: "#555555",
     borderRadius: 10,

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "rgba(28, 28, 28, 0.75)",
     borderWidth: 1,
     borderColor: "#444444",
     borderRadius: 10,

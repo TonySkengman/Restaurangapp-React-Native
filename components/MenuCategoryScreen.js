@@ -1,43 +1,70 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
 import MenuCard from "./MenuItem";
 import BackButton from "./BackButton";
 
-export default function MenuCategoryScreen ({
+export default function MenuCategoryScreen({
   navigation,
   title,
   subtitle,
   data,
+  backgroundImage,
 }) {
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={backgroundImage}
+      style={styles.container}
+      imageStyle={styles.backgroundImage}
+    >
 
-      <BackButton navigation={navigation} />
+      <View style={styles.overlay}>
 
-      <Text style={styles.title}>
-        {title}
-      </Text>
+        <BackButton navigation={navigation} />
 
-      <Text style={styles.subtitle}>
-        {subtitle}
-      </Text>
+        <Text style={styles.title}>
+          {title}
+        </Text>
 
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.list}
-        renderItem={({ item }) => (
-          <MenuCard item={item} navigation={navigation} />
-        )}
-      />
+        <Text style={styles.subtitle}>
+          {subtitle}
+        </Text>
 
-    </View>
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.list}
+          renderItem={({ item }) => (
+            <MenuCard
+              item={item}
+              navigation={navigation}
+            />
+          )}
+        />
+
+      </View>
+
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#111111",
+  },
+
+  backgroundImage: {
+    resizeMode: "cover",
+  },
+
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.65)",
     paddingHorizontal: 25,
     paddingTop: 50,
   },
