@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from "react-native";
 
 import BackButton from "../components/BackButton";
@@ -16,6 +17,9 @@ export default function MealDetailsScreen({ navigation, route }) {
     <BackButton navigation={navigation} />
 
       <View style={styles.card}>
+
+        <Image source={item.image}
+          style={styles.mealImage} />
 
         <Text style={styles.title}>
           {item.name}
@@ -93,4 +97,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 1,
   },
+  
+  mealImage: {
+  width: "100%",
+  height: 220,
+  borderRadius: 10,
+  marginBottom: 20,
+},
 });
