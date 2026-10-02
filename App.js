@@ -11,6 +11,7 @@ import DessertsScreen from "./screens/DessertsScreen";
 import SaucesScreen from "./screens/SaucesScreen";
 import DrinksScreen from "./screens/DrinksScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
+import FavoritesScreen from "./screens/FavoritesScreen";
 import { FavoritesProvider } from "./context/FavoritesContext";
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +36,11 @@ export default function App() {
         <Stack.Screen
           name="Menu"
           component={MenuScreen}
+        />
+
+        <Stack.Screen
+          name="Favorites"
+          component={FavoritesScreen}
         />
 
         <Stack.Screen

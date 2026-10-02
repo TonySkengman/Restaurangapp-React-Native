@@ -39,6 +39,12 @@ export default function HomeScreen() {
             >
               <Text style={styles.buttonText}>MENU</Text>
             </Pressable>
+            <Pressable
+              style={styles.button}
+              onPress={() => navigation.navigate("Favorites")}
+            >
+              <Text style={styles.buttonText}>FAVORITES</Text>
+            </Pressable>
           </View>
 
           {/* These are below the fold, so you scroll to see them */}
