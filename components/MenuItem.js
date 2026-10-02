@@ -5,10 +5,9 @@ import {
   View,
 } from "react-native";
 
-import { useState } from "react";
+import FavoriteButton from "./FavoriteButton";
 
 export default function MenuItem({ item, navigation }) {
-  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <View style={styles.wrapper}>
@@ -34,19 +33,10 @@ export default function MenuItem({ item, navigation }) {
 
       </Pressable>
 
-      <Pressable
-        style={styles.favoriteButton}
-        onPress={() => setIsFavorite(!isFavorite)}
-      >
-        <Text
-          style={[
-            styles.favoriteIcon,
-            isFavorite && styles.favoriteActive,
-          ]}
-        >
-          {isFavorite ? "★" : "☆"}
-        </Text>
-      </Pressable>
+      <FavoriteButton
+       item={item}
+       style={styles.favoriteButton}
+       />
 
     </View>
   );
@@ -94,18 +84,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 15,
     top: 15,
-    width: 40,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  favoriteIcon: {
-    color: "white",
-    fontSize: 30,
-  },
-
-  favoriteActive: {
-    color: "white",
   },
 });

@@ -11,11 +11,13 @@ import DessertsScreen from "./screens/DessertsScreen";
 import SaucesScreen from "./screens/SaucesScreen";
 import DrinksScreen from "./screens/DrinksScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+  <FavoritesProvider>
     <NavigationContainer>
       <StatusBar style="light" />
 
@@ -78,5 +80,6 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+  </FavoritesProvider>
   );
 }

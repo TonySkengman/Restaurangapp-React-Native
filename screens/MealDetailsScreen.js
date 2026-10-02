@@ -7,19 +7,29 @@ import {
 } from "react-native";
 
 import BackButton from "../components/BackButton";
+import { useFavorites } from "../context/FavoritesContext";
 
 export default function MealDetailsScreen({ navigation, route }) {
   const { item } = route.params;
 
+  const {
+    toggleFavorite,
+    isFavorite,
+  } = useFavorites();
+
+  const favorite = isFavorite(item.id);
+
   return (
     <View style={styles.container}>
 
-    <BackButton navigation={navigation} />
+      <BackButton navigation={navigation} />
 
       <View style={styles.card}>
 
-        <Image source={item.image}
-          style={styles.mealImage} />
+        <Image
+          source={item.image}
+          style={styles.mealImage}
+        />
 
         <Text style={styles.title}>
           {item.name}
@@ -33,9 +43,14 @@ export default function MealDetailsScreen({ navigation, route }) {
           {item.price} SEK
         </Text>
 
-        <Pressable style={styles.orderButton}>
-          <Text style={styles.orderButtonText}>
-            ADD TO ORDER
+        <Pressable
+          style={styles.favoriteButton}
+          onPress={() => toggleFavorite(item)}
+        >
+          <Text style={styles.favoriteButtonText}>
+            {favorite
+              ? "REMOVE FROM FAVORITES"
+              : "ADD TO FAVORITES"}
           </Text>
         </Pressable>
 
@@ -82,7 +97,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
 
-  orderButton: {
+  favoriteButton: {
     backgroundColor: "#333333",
     borderWidth: 1,
     borderColor: "#666666",
@@ -91,17 +106,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  orderButtonText: {
+  favoriteButtonText: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
     letterSpacing: 1,
   },
-  
+
   mealImage: {
-  width: "100%",
-  height: 220,
-  borderRadius: 10,
-  marginBottom: 20,
-},
+    width: "100%",
+    height: 220,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
 });
