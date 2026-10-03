@@ -12,12 +12,15 @@ import SaucesScreen from "./screens/SaucesScreen";
 import DrinksScreen from "./screens/DrinksScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
+import Toast from "./components/Toast";
 import { FavoritesProvider } from "./context/FavoritesContext";
+import { ToastProvider } from "./context/ToastContext";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+  <ToastProvider>  
   <FavoritesProvider>
     <NavigationContainer>
       <StatusBar style="light" />
@@ -86,6 +89,8 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    <Toast />
   </FavoritesProvider>
+  </ToastProvider>
   );
 }

@@ -8,9 +8,12 @@ import {
 
 import BackButton from "../components/BackButton";
 import { useFavorites } from "../context/FavoritesContext";
+import { useToast } from "../context/ToastContext";
 
 export default function MealDetailsScreen({ navigation, route }) {
   const { item } = route.params;
+
+  const { showToast } = useToast();
 
   const {
     toggleFavorite,
@@ -45,8 +48,16 @@ export default function MealDetailsScreen({ navigation, route }) {
 
         <Pressable
           style={styles.favoriteButton}
-          onPress={() => toggleFavorite(item)}
-        >
+          onPress={() => {
+            toggleFavorite(item);
+
+            showToast(
+              favorite
+                ? "Removed from favorites"
+                : "Added to favorites"
+              );
+            }}
+          >
           <Text style={styles.favoriteButtonText}>
             {favorite
               ? "REMOVE FROM FAVORITES"

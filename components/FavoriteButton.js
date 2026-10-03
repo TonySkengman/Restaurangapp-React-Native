@@ -5,12 +5,15 @@ import {
 } from "react-native";
 
 import { useFavorites } from "../context/FavoritesContext";
+import { useToast } from "../context/ToastContext";
 
 export default function FavoriteButton({ item, style }) {
   const {
     toggleFavorite,
     isFavorite,
   } = useFavorites();
+
+  const { showToast } = useToast();
 
   const favorite = isFavorite(item.id);
 
@@ -20,7 +23,15 @@ export default function FavoriteButton({ item, style }) {
         styles.favoriteButton,
         style,
       ]}
-      onPress={() => toggleFavorite(item)}
+      onPress={() => {
+        toggleFavorite(item);
+
+        showToast(
+          favorite
+            ? "Removed from favorites"
+            : "Added to favorites"
+        );
+      }}
     >
       <Text
         style={[
