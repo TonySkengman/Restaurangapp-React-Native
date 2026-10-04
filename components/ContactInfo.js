@@ -28,6 +28,8 @@ export default function ContactInfo() {
 
       <Pressable
         style={styles.contactButton}
+        accessibilityRole="button"
+        accessibilityLabel="Send an email to The Steakhouse"
         onPress={openEmail}
       >
         <Text style={styles.icon}>
@@ -47,6 +49,8 @@ export default function ContactInfo() {
 
       <Pressable
         style={styles.contactButton}
+        accessibilityRole="button"
+        accessibilityLabel="Call The Steakhouse"
         onPress={openPhone}
       >
         <Text style={styles.icon}>

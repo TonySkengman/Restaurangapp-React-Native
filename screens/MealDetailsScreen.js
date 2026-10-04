@@ -32,6 +32,8 @@ export default function MealDetailsScreen({ navigation, route }) {
         <Image
           source={item.image}
           style={styles.mealImage}
+          accessibilityRole="image"
+          accessibilityLabel={`${item.name} meal`}
         />
 
         <Text style={styles.title}>
@@ -48,6 +50,15 @@ export default function MealDetailsScreen({ navigation, route }) {
 
         <Pressable
           style={styles.favoriteButton}
+          accessibilityRole="button"
+          accessibilityLabel={
+            favorite
+              ? `Remove ${item.name} from favorites`
+              : `Add ${item.name} to favorites`
+          }
+          accessibilityState={{
+            selected: favorite,
+          }}
           onPress={() => {
             toggleFavorite(item);
 

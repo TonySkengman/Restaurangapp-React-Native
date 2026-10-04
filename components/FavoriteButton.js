@@ -23,6 +23,17 @@ export default function FavoriteButton({ item, style }) {
         styles.favoriteButton,
         style,
       ]}
+
+      accessibilityRole="button"
+      accessibilityLabel={
+        favorite
+          ? `Remove ${item.name} from favorites`
+          : `Add ${item.name} to favorites`
+      }
+      accessibilityState={{
+        selected: favorite,
+      }}
+      
       onPress={() => {
         toggleFavorite(item);
 

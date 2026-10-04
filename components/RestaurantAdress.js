@@ -35,6 +35,8 @@ export default function RestaurantAddress() {
 
       <Pressable
         style={styles.button}
+        accessibilityRole="button"
+        accessibilityLabel="Get directions to The Steakhouse"
         onPress={openMaps}
       >
         <Text style={styles.buttonText}>

@@ -8,6 +8,8 @@ export default function BackButton({ navigation }) {
   return (
     <Pressable
       style={styles.backButton}
+      accessibilityRole="button"
+      accessibilityLabel="Go back"
       onPress={() => navigation.goBack()}
     >
       <Text style={styles.backButtonText}>

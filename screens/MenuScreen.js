@@ -32,6 +32,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View starters menu"
             onPress={() => navigation.navigate("StartersScreen")}
           >
             <Text style={styles.categoryText}>
@@ -41,6 +43,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View steaks menu"
             onPress={() => navigation.navigate("SteaksScreen")}
           >
             <Text style={styles.categoryText}>
@@ -50,6 +54,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View sides menu"
             onPress={() => navigation.navigate("SidesScreen")}
           >
             <Text style={styles.categoryText}>
@@ -59,6 +65,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View sauces menu"
             onPress={() => navigation.navigate("SaucesScreen")}
           >
             <Text style={styles.categoryText}>
@@ -68,6 +76,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View drinks menu"
             onPress={() => navigation.navigate("DrinksScreen")}
           >
             <Text style={styles.categoryText}>
@@ -77,6 +87,8 @@ export default function MenuScreen({ navigation }) {
 
           <Pressable
             style={styles.categoryButton}
+            accessibilityRole="button"
+            accessibilityLabel="View desserts menu"
             onPress={() => navigation.navigate("DessertsScreen")}
           >
             <Text style={styles.categoryText}>

@@ -35,12 +35,16 @@ export default function HomeScreen() {
 
             <Pressable
               style={styles.button}
+              accessibilityRole="button"
+              accessibilityLabel="Open menu"
               onPress={() => navigation.navigate("Menu")}
             >
               <Text style={styles.buttonText}>MENU</Text>
             </Pressable>
             <Pressable
               style={styles.button}
+              accessibilityRole="button"
+              accessibilityLabel="Open favorites"
               onPress={() => navigation.navigate("Favorites")}
             >
               <Text style={styles.buttonText}>FAVORITES</Text>

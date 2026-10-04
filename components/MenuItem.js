@@ -14,6 +14,8 @@ export default function MenuItem({ item, navigation }) {
 
       <Pressable
         style={styles.mealCard}
+        accessibilityRole="button"
+        accessibilityLabel={`View details for ${item.name}`}
         onPress={() => navigation.navigate("MealDetails", { item })}
       >
 
