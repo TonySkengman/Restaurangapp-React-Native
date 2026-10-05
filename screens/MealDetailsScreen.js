@@ -1,4 +1,5 @@
 import {
+  ImageBackground,
   StyleSheet,
   Text,
   View,
@@ -13,50 +14,69 @@ export default function MealDetailsScreen({ navigation, route }) {
   const { item } = route.params;
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
+    <ImageBackground
+      source={require("../assets/images/menu.png")}
+      style={styles.container}
+      imageStyle={styles.backgroundImage}
+    >
 
-      <BackButton navigation={navigation} />
+      <SafeAreaView
+        style={styles.overlay}
+        edges={["top"]}
+      >
 
-      <View style={styles.card}>
+        <BackButton navigation={navigation} />
 
-        <Image
-          source={item.image}
-          style={styles.mealImage}
-          accessibilityRole="image"
-          accessibilityLabel={`${item.name} meal`}
-        />
+        <View style={styles.card}>
 
-        <Text style={styles.title}>
-          {item.name}
-        </Text>
+          <Image
+            source={item.image}
+            style={styles.mealImage}
+            accessibilityRole="image"
+            accessibilityLabel={`${item.name} meal`}
+          />
 
-        <Text style={styles.description}>
-          {item.description}
-        </Text>
+          <Text style={styles.title}>
+            {item.name}
+          </Text>
 
-        <Text style={styles.price}>
-          {item.price} SEK
-        </Text>
+          <Text style={styles.description}>
+            {item.description}
+          </Text>
 
-        <FavoriteButton
-          item={item}
-          style={styles.favoriteButton}
-          labelStyle={styles.favoriteButtonText}
-          showLabel
-        />
+          <Text style={styles.price}>
+            {item.price} SEK
+          </Text>
 
-      </View>
+          <FavoriteButton
+            item={item}
+            style={styles.favoriteButton}
+            labelStyle={styles.favoriteButtonText}
+            showLabel
+          />
 
-    </SafeAreaView>
+        </View>
+
+      </SafeAreaView>
+
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#111111",
+  },
+
+  backgroundImage: {
+    resizeMode: "cover",
+  },
+
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.65)",
     paddingHorizontal: 25,
-    paddingTop: 25,
+    paddingTop: 35,
   },
 
   card: {
@@ -65,6 +85,13 @@ const styles = StyleSheet.create({
     borderColor: "#444444",
     borderRadius: 10,
     padding: 25,
+  },
+
+  mealImage: {
+    width: "100%",
+    height: 220,
+    borderRadius: 10,
+    marginBottom: 20,
   },
 
   title: {
@@ -102,12 +129,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     letterSpacing: 1,
-  },
-
-  mealImage: {
-    width: "100%",
-    height: 220,
-    borderRadius: 10,
-    marginBottom: 20,
   },
 });
