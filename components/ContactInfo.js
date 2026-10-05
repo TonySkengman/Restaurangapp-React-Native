@@ -8,11 +8,15 @@ import {
 
 export default function ContactInfo() {
   const openEmail = () => {
-    Linking.openURL("mailto:info@steakhouse.se");
+    Linking.openURL("mailto:info@steakhouse.se").catch((error) => {
+      console.warn("Unable to open email app", error);
+    });
   };
 
   const openPhone = () => {
-    Linking.openURL("tel:+46211234567");
+    Linking.openURL("tel:+46211234567").catch((error) => {
+      console.warn("Unable to open phone app", error);
+    });
   };
 
   return (

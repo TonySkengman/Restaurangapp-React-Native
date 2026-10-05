@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import HomeScreen from "./screens/HomeScreen";
 import MenuScreen from "./screens/MenuScreen";
@@ -20,6 +21,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+  <SafeAreaProvider>
   <ToastProvider>  
   <FavoritesProvider>
     <NavigationContainer>
@@ -92,5 +94,6 @@ export default function App() {
     <Toast />
   </FavoritesProvider>
   </ToastProvider>
+  </SafeAreaProvider>
   );
 }

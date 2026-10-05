@@ -14,7 +14,9 @@ export default function RestaurantAddress() {
       address
     )}`;
 
-    Linking.openURL(url);
+    Linking.openURL(url).catch((error) => {
+      console.warn("Unable to open maps", error);
+    });
   };
 
   return (

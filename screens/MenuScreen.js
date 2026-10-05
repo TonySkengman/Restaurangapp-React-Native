@@ -5,6 +5,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import BackButton from "../components/BackButton";
 
@@ -16,7 +17,7 @@ export default function MenuScreen({ navigation }) {
       imageStyle={styles.backgroundImage}
     >
 
-      <View style={styles.overlay}>
+      <SafeAreaView style={styles.overlay} edges={["top"]}>
 
         <BackButton navigation={navigation} />
 
@@ -98,7 +99,7 @@ export default function MenuScreen({ navigation }) {
 
         </View>
 
-      </View>
+      </SafeAreaView>
 
     </ImageBackground>
   );
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(0, 0, 0, 0.65)",
     paddingHorizontal: 25,
-    paddingTop: 60,
+    paddingTop: 35,
   },
 
   title: {

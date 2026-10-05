@@ -1,29 +1,19 @@
 import {
-  Pressable,
   StyleSheet,
   Text,
   View,
   Image,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import BackButton from "../components/BackButton";
-import { useFavorites } from "../context/FavoritesContext";
-import { useToast } from "../context/ToastContext";
+import FavoriteButton from "../components/FavoriteButton";
 
 export default function MealDetailsScreen({ navigation, route }) {
   const { item } = route.params;
 
-  const { showToast } = useToast();
-
-  const {
-    toggleFavorite,
-    isFavorite,
-  } = useFavorites();
-
-  const favorite = isFavorite(item.id);
-
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
 
       <BackButton navigation={navigation} />
 
@@ -48,37 +38,16 @@ export default function MealDetailsScreen({ navigation, route }) {
           {item.price} SEK
         </Text>
 
-        <Pressable
+        <FavoriteButton
+          item={item}
           style={styles.favoriteButton}
-          accessibilityRole="button"
-          accessibilityLabel={
-            favorite
-              ? `Remove ${item.name} from favorites`
-              : `Add ${item.name} to favorites`
-          }
-          accessibilityState={{
-            selected: favorite,
-          }}
-          onPress={() => {
-            toggleFavorite(item);
-
-            showToast(
-              favorite
-                ? "Removed from favorites"
-                : "Added to favorites"
-              );
-            }}
-          >
-          <Text style={styles.favoriteButtonText}>
-            {favorite
-              ? "REMOVE FROM FAVORITES"
-              : "ADD TO FAVORITES"}
-          </Text>
-        </Pressable>
+          labelStyle={styles.favoriteButtonText}
+          showLabel
+        />
 
       </View>
 
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -87,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#111111",
     paddingHorizontal: 25,
-    paddingTop: 50,
+    paddingTop: 25,
   },
 
   card: {

@@ -7,7 +7,7 @@ import {
 import { useFavorites } from "../context/FavoritesContext";
 import { useToast } from "../context/ToastContext";
 
-export default function FavoriteButton({ item, style }) {
+export default function FavoriteButton({ item, style, labelStyle, showLabel }) {
   const {
     toggleFavorite,
     isFavorite,
@@ -20,7 +20,7 @@ export default function FavoriteButton({ item, style }) {
   return (
     <Pressable
       style={[
-        styles.favoriteButton,
+        !showLabel && styles.favoriteButton,
         style,
       ]}
 
@@ -45,12 +45,16 @@ export default function FavoriteButton({ item, style }) {
       }}
     >
       <Text
-        style={[
-          styles.favoriteIcon,
-          favorite && styles.favoriteActive,
-        ]}
+        style={showLabel ? labelStyle : [
+            styles.favoriteIcon,
+            favorite && styles.favoriteActive,
+          ]}
       >
-        {favorite ? "★" : "☆"}
+        {showLabel
+          ? favorite
+            ? "REMOVE FROM FAVORITES"
+            : "ADD TO FAVORITES"
+          : favorite ? "★" : "☆"}
       </Text>
     </Pressable>
   );

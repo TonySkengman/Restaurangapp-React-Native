@@ -5,9 +5,12 @@ import {
 } from "react-native";
 
 import { useEffect } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useToast } from "../context/ToastContext";
 
 export default function Toast() {
+  const insets = useSafeAreaInsets();
+
   const {
     toast,
     hideToast,
@@ -30,7 +33,7 @@ export default function Toast() {
   }
 
   return (
-    <View style={styles.toast}>
+    <View style={[styles.toast, { bottom: insets.bottom + 30 }]}>
       <Text style={styles.text}>
         {toast.message}
       </Text>
@@ -41,7 +44,6 @@ export default function Toast() {
 const styles = StyleSheet.create({
   toast: {
     position: "absolute",
-    bottom: 30,
     left: 25,
     right: 25,
 
