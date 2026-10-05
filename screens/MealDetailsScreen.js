@@ -15,7 +15,7 @@ export default function MealDetailsScreen({ navigation, route }) {
 
   return (
     <ImageBackground
-      source={require("../assets/images/menu.png")}
+      source={require("../assets/images/backgrounds/menu.png")}
       style={styles.container}
       imageStyle={styles.backgroundImage}
     >

@@ -8,7 +8,7 @@ export default function SaucesScreen({ navigation }) {
       title="SAUCES"
       subtitle="Choose the perfect finishing touch"
       data={sauces}
-      backgroundImage={require("../assets/images/sauces.png")}
+      backgroundImage={require("../assets/images/backgrounds/sauces.png")}
     />
   );
 }

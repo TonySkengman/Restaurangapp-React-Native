@@ -9,7 +9,7 @@ export default function StartersScreen( {navigation} ) {
       title="STARTERS"
       subtitle="Begin your experience with something delicious"
       data={starters}
-      backgroundImage={require("../assets/images/starters.png")}
+      backgroundImage={require("../assets/images/backgrounds/starters.png")}
     />
   );
 }

@@ -8,7 +8,7 @@ export default function SteaksScreen({ navigation }) {
       title="STEAKS"
       subtitle="Our selection of premium steaks"
       data={steaks}
-      backgroundImage={require("../assets/images/steaks.png")}
+      backgroundImage={require("../assets/images/backgrounds/steaks.png")}
     />
   );
 }

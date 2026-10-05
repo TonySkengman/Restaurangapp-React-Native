@@ -8,7 +8,7 @@ export default function SidesScreen({ navigation }) {
       title="SIDES"
       subtitle="The perfect sides for your steak"
       data={sides}
-      backgroundImage={require("../assets/images/sides.png")}
+      backgroundImage={require("../assets/images/backgrounds/sides.png")}
     />
   );
 }
