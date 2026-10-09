@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import MenuCard from "./MenuItem";
+import MenuItem from "./MenuItem";
 import BackButton from "./BackButton";
 
 export default function MenuCategoryScreen({
@@ -40,7 +40,7 @@ export default function MenuCategoryScreen({
           keyExtractor={(item) => item.id.toString()}
           contentContainerStyle={styles.list}
           renderItem={({ item }) => (
-            <MenuCard
+            <MenuItem
               item={item}
               navigation={navigation}
             />
